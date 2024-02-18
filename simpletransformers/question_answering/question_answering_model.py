@@ -1168,6 +1168,7 @@ class QuestionAnsweringModel:
                 }
 
                 if self.args.model_type in [
+                    "phobert",
                     "xlm",
                     "roberta",
                     "distilbert",
@@ -1332,6 +1333,7 @@ class QuestionAnsweringModel:
                 }
 
                 if self.args.model_type in [
+                    "phobert",
                     "xlm",
                     "roberta",
                     "distilbert",
@@ -1484,6 +1486,7 @@ class QuestionAnsweringModel:
             inputs = {key: value.to(self.device) for key, value in batch.items()}
 
             if self.args.model_type in [
+                "phobert",
                 "xlm",
                 "roberta",
                 "distilbert",
@@ -1509,6 +1512,7 @@ class QuestionAnsweringModel:
             }
 
             if self.args.model_type in [
+                "phobert",
                 "xlm",
                 "roberta",
                 "distilbert",
