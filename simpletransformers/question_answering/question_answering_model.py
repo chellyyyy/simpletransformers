@@ -135,6 +135,7 @@ class QuestionAnsweringModel:
             "auto": (AutoConfig, AutoModelForQuestionAnswering, AutoTokenizer),
             "bart": (BartConfig, BartForQuestionAnswering, BartTokenizer),
             "bert": (BertConfig, BertForQuestionAnswering, BertTokenizer),
+            "phobert": (    AutoConfig, AutoModelForQuestionAnswering, AutoTokenizer),
             "camembert": (
                 CamembertConfig,
                 CamembertForQuestionAnswering,
