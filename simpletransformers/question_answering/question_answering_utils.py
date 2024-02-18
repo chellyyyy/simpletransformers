@@ -138,38 +138,42 @@ def get_examples(examples_to_process, is_training=True, version_2_with_negative=
 
     examples = []
     for paragraph in examples_to_process:
-        context_text = paragraph["context"]
-        for qa in paragraph["qas"]:
-            qas_id = qa["id"]
-            question_text = qa["question"]
-            start_position_character = None
-            answer_text = None
-            answers = []
+        try:
+          context_text = paragraph["context"]
+          for qa in paragraph["qas"]:
+              qas_id = qa["id"]
+              question_text = qa["question"]
+              start_position_character = None
+              answer_text = None
+              answers = []
 
-            if "is_impossible" in qa:
-                is_impossible = qa["is_impossible"]
-            else:
-                is_impossible = False
+              if "is_impossible" in qa:
+                  is_impossible = qa["is_impossible"]
+              else:
+                  is_impossible = False
 
-            if not is_impossible:
-                if is_training:
-                    answer = qa["answers"][0]
-                    answer_text = answer["text"]
-                    start_position_character = answer["answer_start"]
-                else:
-                    answers = qa["answers"]
+              if not is_impossible:
+                  if is_training:
+                      answer = qa["answers"][0]
+                      answer_text = answer["text"]
+                      start_position_character = answer["answer_start"]
+                  else:
+                      answers = qa["answers"]
 
-            example = SquadExample(
-                qas_id=qas_id,
-                question_text=question_text,
-                context_text=context_text,
-                answer_text=answer_text,
-                start_position_character=start_position_character,
-                title=None,
-                is_impossible=is_impossible,
-                answers=answers,
-            )
-            examples.append(example)
+              example = SquadExample(
+                  qas_id=qas_id,
+                  question_text=question_text,
+                  context_text=context_text,
+                  answer_text=answer_text,
+                  start_position_character=start_position_character,
+                  title=None,
+                  is_impossible=is_impossible,
+                  answers=answers,
+              )
+              examples.append(example)
+        except:
+              pass
+
     return examples
 
 
