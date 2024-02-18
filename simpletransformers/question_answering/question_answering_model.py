@@ -34,6 +34,7 @@ from transformers.optimization import (
 from torch.optim import AdamW
 from transformers.optimization import Adafactor
 from transformers import (
+    AutoModel,
     AlbertConfig,
     AlbertForQuestionAnswering,
     AlbertTokenizer,
@@ -136,6 +137,7 @@ class QuestionAnsweringModel:
             "bart": (BartConfig, BartForQuestionAnswering, BartTokenizer),
             "bert": (BertConfig, BertForQuestionAnswering, BertTokenizer),
             "phobert": (    AutoConfig, AutoModelForQuestionAnswering, AutoTokenizer),
+            "phobert1": (    AutoConfig, AutoModel, AutoTokenizer),
             "camembert": (
                 CamembertConfig,
                 CamembertForQuestionAnswering,
