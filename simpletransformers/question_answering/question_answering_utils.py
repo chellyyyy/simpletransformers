@@ -138,7 +138,8 @@ def get_examples(examples_to_process, is_training=True, version_2_with_negative=
 
     examples = []
     for paragraph in examples_to_process:
-        try:
+        # try:
+          print(paragraph)
           context_text = paragraph["context"]
           for qa in paragraph["qas"]:
               qas_id = qa["id"]
@@ -171,8 +172,8 @@ def get_examples(examples_to_process, is_training=True, version_2_with_negative=
                   answers=answers,
               )
               examples.append(example)
-        except:
-              pass
+        # except:
+        #       pass
 
     return examples
 
