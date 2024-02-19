@@ -139,7 +139,7 @@ def get_examples(examples_to_process, is_training=True, version_2_with_negative=
     examples = []
     for paragraph in examples_to_process:
         # try:
-          print(paragraph)
+          # print(paragraph)
           context_text = paragraph["context"]
           for qa in paragraph["qas"]:
               qas_id = qa["id"]
